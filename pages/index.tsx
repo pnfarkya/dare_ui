@@ -16,6 +16,9 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>
           Welcome to DARE
         </h1>
+        <h3 className={styles.title}>
+          <a href='/login'>Login Here </a>
+        </h3>
       </main>
 
       <footer className={styles.footer}>
