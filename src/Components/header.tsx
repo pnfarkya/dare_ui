@@ -174,12 +174,12 @@ const Header = () => {
                     </MenuItem>
                   ))}
                 </Menu>
-              </Grid>
-              <Grid item sm={2} >
-                <Typography><a href='/signup'>Sign Up</a></Typography>
-              </Grid>
-            </Grid>
+              </Grid>              
+            </Grid>            
           </Box>
+          <Grid item sm={3} sx={{padding: 1}} >
+            <Typography><a href='/signup'>Sign Up</a></Typography>
+          </Grid>
         </Toolbar>
       </Container>
     </AppBar>
