@@ -12,7 +12,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import NextLink, { LinkProps } from  'next/link';
+import NextLink, { LinkProps } from 'next/link';
+import { Grid } from '@mui/material';
 
 const pages = [
   {
@@ -64,10 +65,10 @@ const Header = () => {
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
-        <Toolbar disableGutters>            
-            <Typography variant="h6"
-                        noWrap component="a" href="/" 
-                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'monospace', fontWeight: 700, letterSpacing: '.3rem', color: 'inherit', textDecoration: 'none'}} >  
+        <Toolbar disableGutters>
+          <Typography variant="h6"
+            noWrap component="a" href="/"
+            sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, fontFamily: 'monospace', fontWeight: 700, letterSpacing: '.3rem', color: 'inherit', textDecoration: 'none' }} >
             DARE
           </Typography>
 
@@ -142,33 +143,42 @@ const Header = () => {
             ))}
           </Box>
 
+
           <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
-                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                </IconButton>
-              </Tooltip>
-              <Menu sx={{ mt: '45px' }}
-                    id="menu-appbar"
-                    anchorEl={anchorElUser}
-                    anchorOrigin={{
-                      vertical: 'top',
-                      horizontal: 'right',
-                    }}
-                    keepMounted
-                    transformOrigin={{
-                      vertical: 'top',
-                      horizontal: 'right',
-                    }}
-                    open={Boolean(anchorElUser)}
-                    onClose={handleCloseUserMenu}
-                  >
+
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              </IconButton>
+            </Tooltip>
+            <Grid container spacing={2}>
+              <Grid item sm={9}>
+                <Menu sx={{ mt: '45px' }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
                   {settings.map((setting) => (
                     <MenuItem key={setting} onClick={handleCloseUserMenu} >
                       <Typography textAlign="center">{setting}</Typography>
                     </MenuItem>
                   ))}
-              </Menu>
+                </Menu>
+              </Grid>
+              <Grid item sm={2} >
+                <Typography><a href='/signup'>Sign Up</a></Typography>
+              </Grid>
+            </Grid>
           </Box>
         </Toolbar>
       </Container>
