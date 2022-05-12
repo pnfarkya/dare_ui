@@ -5,10 +5,10 @@ import Layout from '../src/Components/layout'
 import styles from '../styles/Home.module.css'
 import SecondaryMarketsHome from '../src/Components/secondary_markets/home'
 
-const SecondaryMarkets : NextPage = () => {
+const SecondaryMarkets: NextPage = () => {
   return (
-    <div className={styles.container}>      
-      <SecondaryMarketsHome/>
+    <div className={styles.container}>
+      <SecondaryMarketsHome />
     </div>
   )
 }
