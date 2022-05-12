@@ -10,6 +10,8 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import ImageStack from '../common/imageStack';
 import { spacing, textAlign } from "@mui/system";
 import Stack from '@mui/material/Stack';
+import ListItem from '@mui/material/ListItem';
+
 
 const Recommendations = () => {
 
@@ -18,26 +20,59 @@ const Recommendations = () => {
              need to fetch data from api with images to display                 
   */
 const data = [
-    { creator : "Anubis", img1 : "/images/dare_logo.png"},
-    { creator : "Girls in Pink", img1 : "/images/dare_logo.png"},
-    { creator : "Cinema Apes", img1 : "/images/dare_logo.png"},
-    { creator : "Lumberjack", img1 : "/images/dare_logo.png"},
+    { 
+      creator : "Anubis",
+      imageData : [
+        { url : "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e", title:"Breakfast"},
+        { url : "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", title:"Burger"},
+        { url : "https://images.unsplash.com/photo-1522770179533-24471fcdba45", title:"Camera"},
+        { url : "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c", title:"Coffee"}
+      ]      
+    },
+    {
+      creator : "Girls in Pink",
+      imageData : [
+        { url : "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e", title:"Breakfast"},
+        { url : "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", title:"Burger"},
+        { url : "https://images.unsplash.com/photo-1522770179533-24471fcdba45", title:"Camera"},
+        { url : "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c", title:"Coffee"}
+      ]  
+    },
+    {
+      creator : "Cinema Apes",
+      imageData : [
+        { url : "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e", title:"Breakfast"},
+        { url : "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", title:"Burger"},
+        { url : "https://images.unsplash.com/photo-1522770179533-24471fcdba45", title:"Camera"},
+        { url : "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c", title:"Coffee"}
+      ]  
+    },
+    { 
+      creator : "Lumberjack",
+      imageData : [
+        { url : "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e", title:"Breakfast"},
+        { url : "https://images.unsplash.com/photo-1551782450-a2132b4ba21d", title:"Burger"},
+        { url : "https://images.unsplash.com/photo-1522770179533-24471fcdba45", title:"Camera"},
+        { url : "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c", title:"Coffee"}
+      ]  
+    }
   ];
 
+  
 return (
   <div >
-    {data.map((item) => (
-      <Stack direction="row">
+    <Stack direction='row'>          
+      {data.map((item) => (
         <Card sx={{width: '200px', height: '200px'}}>
           <CardHeader title={`${item.creator}`} style={{textAlign: 'center' }} />
           <CardContent >
             <Grid container justifyContent="center">
-              <ImageStack />
+              <ImageStack imageData={item.imageData} />
             </Grid>
           </CardContent>
         </Card>
-      </Stack>
-    ))}
+      ))}
+    </Stack>    
   </div>
   );
 };
