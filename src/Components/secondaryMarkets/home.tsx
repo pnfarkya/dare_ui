@@ -1,4 +1,8 @@
-import { CircularProgress, getAccordionActionsUtilityClass, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Typography } from '@mui/material';
+import {
+    CircularProgress, getAccordionActionsUtilityClass, TableContainer, Table, TableHead, TableRow, TableCell, TableBody,
+    Typography, Card, CardMedia, CardContent, CardHeader, Avatar, IconButton, Grid
+} from '@mui/material';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import React from 'react';
 import { getTopAseets } from '../repository/openSeaRepo'
 class SecondaryMarketsHome extends React.Component<any, any> {
@@ -25,31 +29,35 @@ class SecondaryMarketsHome extends React.Component<any, any> {
                     <CircularProgress />
 
                 </>) : (<>
-                    <TableContainer>
-                        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                            <TableHead>
-                                <TableRow>
-                                    <TableCell align="right">Id</TableCell>
-                                    <TableCell align="right">Name</TableCell>
-                                    <TableCell align="right">Image</TableCell>
-                                    <TableCell align="right">Description</TableCell>
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                {this.state.assets.map((row) => (
-                                    <TableRow
-                                        key={row.name}
-                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                    >
-                                        <TableCell align="right"><a href={`/asset/${row.id}`}>{row.id}</a></TableCell>
-                                        <TableCell align="right">{row.name}</TableCell>
-                                        <TableCell align="right"><img src={row.image_thumbnail_url} /></TableCell>
-                                        <TableCell align="right">{row.description}</TableCell>
-                                    </TableRow>
-                                ))}
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
+                    <Grid container spacing={4}>
+                        {
+                            this.state.assets.map(row =>
+                            (<Grid item><Card sx={{ width: 350, height: 350 }}>
+                                <CardHeader
+                                    avatar={
+                                        <Avatar aria-label="recipe">
+                                            {row.creator.user.username}
+                                        </Avatar>
+                                    }
+                                    action={
+                                        <IconButton aria-label="settings">
+                                            <MoreVertIcon />
+                                        </IconButton>
+                                    }
+                                    title={row.name}
+
+                                    subheader={new Date(row.asset_contract.created_date).toDateString()}
+                                />
+                                <CardMedia component='img' height='180' image={row.image_thumbnail_url} alt={row.name} />
+                                <CardContent>
+                                    <Typography variant="body2" color="text.secondary">
+                                        {row.description}
+                                    </Typography>
+                                </CardContent>
+                            </Card></Grid>)
+                            )
+                        }
+                    </Grid>
                 </>)
                 }
             </div>)
