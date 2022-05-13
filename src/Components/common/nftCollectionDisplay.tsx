@@ -42,10 +42,10 @@ class NftCollectionDisplay extends React.Component<any, any> {
               <Grid container item sx={{ padding: 1 }} >
                 {this.props.recommendations.map((item) => (
                   <Box sx={{ padding: 1 }}>
-                    <Card sx={{width: '200px', height: '200px' }}>
+                    <Card sx={{ width: 'auto', height: 'auto' }}>
                       <CardHeader title={`${item.creator}`} style={{textAlign: 'center', backgroundColor: item.color }} />
                       <CardContent >
-                        <Grid container justifyContent="center" >
+                        <Grid container justifyContent='center' >
                           <ImageStack imageData={item.imageData} />
                         </Grid>
                       </CardContent>
