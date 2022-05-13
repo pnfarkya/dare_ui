@@ -27,7 +27,7 @@ const MenuProps = {
 const categories = [
     'Art', 'Song', 'Commercial', 'Social'
 ];
-class SignUp extends React.Component {
+class SignUp extends React.Component<any, any> {
     constructor(props) {
         super(props);
         this.state = {
