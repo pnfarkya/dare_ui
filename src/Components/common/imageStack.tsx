@@ -5,7 +5,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 const ImageStack = ({imageData}) => {
     console.log(imageData);
     return (
-        <ImageList cols={2} rowHeight={50} style={{ overflow: "hidden", width: 100, height: 100 }}>
+        <ImageList cols={2} rowHeight={50} style={{ overflow: "auto", width: 150, height: 150 }}>
             {imageData.map((item) => (
             <ImageListItem key={item.img}>
                 <img
