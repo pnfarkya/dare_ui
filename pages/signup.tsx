@@ -13,6 +13,7 @@ import { Typography, Select, InputLabel, MenuItem, OutlinedInput, ListItemText }
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Sign } from 'crypto';
+import { createUserProfile } from '../src/Components/repository/userRepo'
 
 const theme = createTheme();
 const ITEM_HEIGHT = 48;
@@ -35,7 +36,7 @@ class SignUp extends React.Component<any, any> {
             lastName: "",
             email: "",
             password: "",
-            mobileNumber: "",
+            mobNumber: "",
             intrestedCategories: [],
             country: "",
             companyName: ""
@@ -44,13 +45,20 @@ class SignUp extends React.Component<any, any> {
         this.handleCat = this.handleCat.bind(this);
     }
 
-    handleSubmit(event) {
+    async handleSubmit(event) {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+        const request = {
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            email: this.state.email,
+            password: this.state.password,
+            mobNumber: this.state.mobNumber,
+            intrestedCategories: this.state.intrestedCategories,
+            country: this.state.country,
+        }
+        await createUserProfile(request);
+
     };
     handleCat(value) {
         this.setState({ intrestedCategories: value.target.value });
@@ -85,6 +93,7 @@ class SignUp extends React.Component<any, any> {
                                         id="firstName"
                                         label="First Name"
                                         autoFocus
+                                        value={this.state.firstName}
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
@@ -95,13 +104,14 @@ class SignUp extends React.Component<any, any> {
                                         label="Last Name"
                                         name="lastName"
                                         autoComplete="family-name"
+                                        value={this.state.lastName}
                                     />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
-                                    <TextField label="Country" autoComplete='given-name' required fullWidth />
+                                    <TextField label="Country" autoComplete='given-name' required fullWidth value={this.state.country} />
                                 </Grid>
                                 <Grid item xs={12} sm={6}>
-                                    <TextField label="Mobile Number" autoComplete='given-name' required fullWidth type="number" />
+                                    <TextField label="Mobile Number" autoComplete='given-name' required fullWidth type="number" value={this.state.mobNumber} />
                                 </Grid>
                                 <Grid item xs={12}>
                                     <InputLabel id="Preferred Categories">Preferred Categories</InputLabel>
@@ -131,6 +141,7 @@ class SignUp extends React.Component<any, any> {
                                         label="Email Address"
                                         name="email"
                                         autoComplete="email"
+                                        value={this.state.email}
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
@@ -142,6 +153,7 @@ class SignUp extends React.Component<any, any> {
                                         type="password"
                                         id="password"
                                         autoComplete="new-password"
+                                        value={this.state.password}
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
@@ -161,7 +173,7 @@ class SignUp extends React.Component<any, any> {
                             </Button>
                             <Grid container justifyContent="flex-end">
                                 <Grid item>
-                                    <Link href="#" variant="body2">
+                                    <Link href="/login" variant="body2">
                                         Already have an account? Sign in
                                     </Link>
                                 </Grid>

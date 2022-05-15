@@ -174,11 +174,11 @@ const Header = () => {
                     </MenuItem>
                   ))}
                 </Menu>
-              </Grid>              
-            </Grid>            
+              </Grid>
+            </Grid>
           </Box>
-          <Grid item sm={3} sx={{padding: 1}} >
-            <Typography><a href='/signup'>Sign Up</a></Typography>
+          <Grid item sm={3} sx={{ padding: 1 }} >
+            <Typography><a href='/login'>Sign In</a></Typography>
           </Grid>
         </Toolbar>
       </Container>
