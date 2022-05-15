@@ -1,1 +1,1 @@
-export const ApiBaseUri = "localhots:8000/dare";
+export const ApiBaseUri = "localhost:8000/dare";
