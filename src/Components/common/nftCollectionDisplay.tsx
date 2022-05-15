@@ -33,29 +33,21 @@ class NftCollectionDisplay extends React.Component<any, any> {
   
   render() {
       return(
-        <div>
-          <Box sx={{ border: 1, borderColor: '#4A148C'}}>
-            <Box sx={{ backgroundColor: '#4A148C', color: 'whitesmoke', fontSize: 20, padding: 1 }}>              
-                {this.props.title}              
-            </Box>              
-              {/* <Stack direction='row' spacing={1} sx={{ padding: 1, overflow: "hidden", whiteSpace: "wrap" }}>           */}
-              <Grid container item sx={{ padding: 1 }} >
-                {this.props.recommendations.map((item) => (
-                  <Box sx={{ padding: 1 }}>
-                    <Card sx={{ width: 'auto', height: 'auto' }}>
-                      <CardHeader title={`${item.creator}`} style={{textAlign: 'center', backgroundColor: item.color }} />
-                      <CardContent >
-                        <Grid container justifyContent='center' >
-                          <ImageStack imageData={item.imageData} />
-                        </Grid>
-                      </CardContent>
-                    </Card>                    
-                  </Box>
-                ))}
-              </Grid>
-              {/* </Stack> */}
-           
-          </Box>
+        <div>          
+          <Grid container item sx={{ padding: 1 }} >
+            {this.props.recommendations.map((item) => (
+              <Box sx={{ padding: 1 }}>
+                <Card sx={{ width: 'auto', height: 'auto' }}>
+                  <CardHeader title={`${item.creator}`} style={{textAlign: 'center', backgroundColor: item.color }} />
+                  <CardContent >
+                    <Grid container justifyContent='center' >
+                      <ImageStack imageData={item.imageData} />
+                    </Grid>
+                  </CardContent>
+                </Card>                    
+              </Box>
+            ))}
+          </Grid>             
         </div>
       )
   }

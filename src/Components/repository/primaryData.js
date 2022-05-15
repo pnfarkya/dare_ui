@@ -81,13 +81,13 @@ const data = [
     }
   ];
   
-export async function getTop10Recommendations() {
+export function getTop10Recommendations() {
     let top10Recommendations = [];
     top10Recommendations = data;
     return top10Recommendations;
 }
 
-export async function getUpcomingRecommendations() {
+export function getUpcomingRecommendations() {
     let upcomingRecommendations = [];
     upcomingRecommendations = data;
     return upcomingRecommendations;
