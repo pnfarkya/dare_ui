@@ -41,7 +41,7 @@ class SecondaryMarketsHome extends React.Component<any, any> {
                                         <CardHeader
                                             avatar={
                                                 <Avatar aria-label="recipe">
-                                                    {row.creator.user !== null || row.creator.user !== undefined ? row.creator.user.username : ""}
+                                                    {/* {row.creator.user !== null || row.creator.user !== undefined ? row.creator.user.username : ""} */}
                                                 </Avatar>
                                             }
                                             action={
