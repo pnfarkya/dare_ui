@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import { Grid, Avatar, Box, TextField, Typography, Button, FormControlLabel, Checkbox, Link } from '@mui/material'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import React from 'react'
+import { userSignIn } from '../src/Components/repository/userRepo'
 
 class Login extends React.Component<any, any> {
   constructor(props) {
@@ -14,12 +15,25 @@ class Login extends React.Component<any, any> {
       password: ""
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEmail = this.handleEmail.bind(this);
+    this.handlePass = this.handlePass.bind(this);
   }
 
   async handleSubmit(event) {
-    alert("Wait for few .....Coming soon")
+    const request = {
+      email: this.state.loginEmail,
+      password: this.state.password
+    }
+    await userSignIn(request)
   }
 
+  handlePass(value) {
+    this.setState({ password: value.target.value })
+  }
+
+  handleEmail(value) {
+    this.setState({ loginEmail: value.target.value })
+  }
   render() {
     return (
       <div className={styles.container}>
@@ -52,9 +66,9 @@ class Login extends React.Component<any, any> {
                 id="email"
                 label="Email Address"
                 name="email"
-                autoComplete="email"
                 autoFocus
                 value={this.state.loginEmail}
+                onChange={this.handleEmail}
               />
               <TextField
                 margin="normal"
@@ -64,15 +78,15 @@ class Login extends React.Component<any, any> {
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
                 value={this.state.password}
+                onChange={this.handlePass}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
               <Button
-                type="submit"
+                onClick={this.handleSubmit}
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}

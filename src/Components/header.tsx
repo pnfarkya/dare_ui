@@ -62,6 +62,10 @@ const Header = () => {
     setAnchorElUser(null);
   };
 
+  const onLogOut = () => {
+    localStorage.removeItem('userToken');
+  }
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -168,11 +172,12 @@ const Header = () => {
                   open={Boolean(anchorElUser)}
                   onClose={handleCloseUserMenu}
                 >
-                  {settings.map((setting) => (
-                    <MenuItem key={setting} onClick={handleCloseUserMenu} >
-                      <Typography textAlign="center">{setting}</Typography>
-                    </MenuItem>
-                  ))}
+                  <MenuItem key='profile' onClick={handleCloseUserMenu} >
+                    <Button><a href='/userProfile'> Profile</a></Button>
+                  </MenuItem>
+                  <MenuItem key='logout' onClick={handleCloseUserMenu} >
+                    <Button onClick={onLogOut}>Logout</Button>
+                  </MenuItem>
                 </Menu>
               </Grid>
             </Grid>
