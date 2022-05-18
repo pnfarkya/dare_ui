@@ -38,24 +38,6 @@ class NftCollectionDisplay extends React.Component<any, any> {
         <Grid container item sx={{ padding: 1 }} >
           <Carousel show={5}>
             {this.props.recommendations.map((item) => (
-<<<<<<< HEAD
-              <Box sx={{ padding: 1 }}>
-                <Card sx={{ width: 'auto', height: 'auto' }}>
-                  <CardActionArea>
-                    <CardHeader title={`${item.creator}`} style={{textAlign: 'center', backgroundColor: item.color }} />
-                      <CardContent >
-                        <Grid container justifyContent='center' >
-                          <ImageStack imageData={item.imageData} />
-                        </Grid>
-                      </CardContent>
-                  </CardActionArea>                  
-                </Card>                    
-              </Box>
-            ))}            
-          </Grid>       
-        </div>
-      )
-=======
               <Card style={{ width: 320, height: 350, marginLeft: 15 }}>
                 <CardHeader title={`${item.creator}`} style={{ textAlign: 'center', backgroundColor: item.color }} />
                 <CardContent >
@@ -69,7 +51,6 @@ class NftCollectionDisplay extends React.Component<any, any> {
         </Grid>
       </div>
     )
->>>>>>> c539b7770d69805a4ec92e746e9162fedac84c78
   }
 }
 
