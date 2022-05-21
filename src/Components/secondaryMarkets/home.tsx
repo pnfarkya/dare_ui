@@ -51,7 +51,7 @@ export default function SecondaryMarketsHome() {
                                     assets.map(row =>
                                     (
                                         // <Grid item>
-                                        <Card style={{ width: 350, height: 350, marginLeft: 15 }} elevation={10}>
+                                        <Card style={{ width: 350, height: 350, marginLeft: 15 }} elevation={10} onClick={(event) => { window.location.href = '/collections/collection' }}>
                                             <CardHeader
                                                 avatar={
                                                     <Avatar aria-label="recipe">

@@ -7,6 +7,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { margin } from "@mui/system";
+import { Carousel } from '../customControls/carouselControl'
 
 export default function PrimaryMarketsHome() {
     const [expanded, setExpanded] = React.useState<string | false>(false);

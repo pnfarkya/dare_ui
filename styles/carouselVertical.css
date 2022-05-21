@@ -1,0 +1,95 @@
+.vcarousel-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.vcarousel-wrapper {
+    width: 100%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+.vcarousel-content-wrapper {
+    max-height: '100px';
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+}
+
+.vcarousel-content {
+    display: flex;
+    flex-direction: column;
+    transition: all 400ms ease-in-out;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.vcarousel-content::-webkit-scrollbar,
+.vcarousel-content::-webkit-scrollbar {
+    display: none;
+}
+
+.vcarousel-content>* {
+    height: 100%;
+    flex-shrink: 0;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.vcarousel-wrapper.show-2>* {
+    width: 30%;
+}
+
+.vcarousel-wrapper.show-3>* {
+    width: calc(100%/3)
+}
+
+.vcarousel-wrapper.show-4>* {
+    width: calc(100%/4)
+}
+
+.left-arrow .right-arrow {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    outline: none;
+    background-color: blue;
+    border: 0px solid transparent;
+    opacity: 0.5;
+    transition: 0.3s;
+    color: white;
+    font-size: 24px;
+    align-self: center;
+}
+
+.left-arrow {
+    left: 24px;
+}
+
+.right-arrow {
+    right: 24px;
+}
+
+.left-arrow:hover {
+    background-color: transparent;
+
+}
+
+.right-arrow:hover {
+    background-color: transparent;
+
+}
+
+@media (hover:none) and (pointer:coarse) {
+
+    .left-arrow,
+    .right-arrow {
+        display: none;
+    }
+}

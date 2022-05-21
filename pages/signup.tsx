@@ -9,7 +9,7 @@ import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import { Typography, Select, InputLabel, MenuItem, OutlinedInput, ListItemText } from '@mui/material';
+import { Typography, Select, InputLabel, MenuItem, OutlinedInput, ListItemText, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Sign } from 'crypto';
@@ -39,10 +39,12 @@ class SignUp extends React.Component<any, any> {
             mobNumber: "",
             intrestedCategories: [],
             country: "",
-            companyName: ""
+            companyName: "",
+            showSucess: false
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleCat = this.handleCat.bind(this);
+        this.handleClose = this.handleClose.bind(this);
     }
 
     async handleSubmit(event) {
@@ -57,12 +59,19 @@ class SignUp extends React.Component<any, any> {
             intrestedCategories: this.state.intrestedCategories,
             country: this.state.country,
         }
-        await createUserProfile(request);
 
+        // await createUserProfile(request);
+        this.setState({ showSuccess: true })
     };
+
     handleCat(value) {
         this.setState({ intrestedCategories: value.target.value });
     };
+    handleClose(value) {
+        this.setState({ showSucess: false });
+        window.location.href = "/userProfile";
+    }
+
     render() {
         return (
             <ThemeProvider theme={theme}>
@@ -180,6 +189,25 @@ class SignUp extends React.Component<any, any> {
                             </Grid>
                         </Box>
                     </Box>
+                    <Dialog
+                        open={this.state.showSuccess}
+                        onClose={this.handleClose}
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
+                    >
+                        <DialogTitle id="alert-dialog-title">
+                            {"Welcome"}
+                        </DialogTitle>
+                        <DialogContent>
+                            <DialogContentText id="alert-dialog-description">
+                                Thank you!
+                                Thanks for signing up. Welcome to DARE. We are happy to have you on board.
+                            </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={this.handleClose}>Ok</Button>
+                        </DialogActions>
+                    </Dialog>
                 </Container>
             </ThemeProvider>
         );
