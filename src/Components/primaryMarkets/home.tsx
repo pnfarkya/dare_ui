@@ -29,7 +29,7 @@ export default function PrimaryMarketsHome() {
           
         <Accordion expanded={expanded === 'top10'} onChange={handleChange('top10')} sx={{ marginTop: 1 }}>
           <AccordionSummary expandIcon={<ExpandMoreIcon sx ={{ color: 'whitesmoke'}} />} aria-controls="panel1a-content" id="panel1a-header" 
-            sx={{ backgroundColor: '#4A148C', color: 'whitesmoke', fontSize: 20, padding: 1, height: 22 }}>
+            sx={{ backgroundColor: '#3A1A65', color: 'whitesmoke', fontWeight: 'bold', fontSize: 20, padding: 1, height: 22 }}>
             Top 10 Recommendations
           </AccordionSummary>
           <AccordionDetails>
@@ -38,7 +38,7 @@ export default function PrimaryMarketsHome() {
         </Accordion>
         <Accordion expanded={expanded === 'upcoming'} onChange={handleChange('upcoming')} sx={{ marginTop: 1 }}>
           <AccordionSummary expandIcon={<ExpandMoreIcon sx ={{ color: 'whitesmoke'}} />} aria-controls="panel2a-content" id="panel2a-header" 
-            sx={{ backgroundColor: '#4A148C', color: 'whitesmoke', fontSize: 20, padding: 1, height: 22 }}>
+            sx={{ backgroundColor: '#3A1A65', color: 'whitesmoke', fontWeight: 'bold', fontSize: 20, padding: 1, height: 22 }}>
             Upcoming             
           </AccordionSummary>
           <AccordionDetails>
