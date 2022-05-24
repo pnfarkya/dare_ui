@@ -17,6 +17,7 @@ export default function PrimaryMarketsHome() {
     useEffect(() => {
         setTop10Recommendations(getTop10Recommendations());
         setUpcomingRecommendations(getUpcomingRecommendations());
+        setExpanded("top10")
        });
   
     const handleChange =

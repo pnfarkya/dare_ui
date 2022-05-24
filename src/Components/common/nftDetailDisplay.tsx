@@ -14,6 +14,15 @@ import Box from '@mui/material/Box';
 import { wrap } from "module";
 import { Carousel } from '../customControls/carouselControl';
 import { Public } from "@mui/icons-material";
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Avatar from '@mui/material/Avatar';
+import ImageIcon from '@mui/icons-material/Image';
+import WorkIcon from '@mui/icons-material/Work';
+import BeachAccessIcon from '@mui/icons-material/BeachAccess';
+import Divider from '@mui/material/Divider';
 
 class NftCollectionDisplay extends React.Component<any, any> {
 
@@ -66,42 +75,86 @@ class NftCollectionDisplay extends React.Component<any, any> {
          <Carousel show={3} style={{margin: 10,textAlign: "center" }}>
           <Card style={{width: 350, height: 'auto', margin: 5 }}>                  
             <CardActionArea>
-              <CardHeader title='Creator Profile Rating' style={{ textAlign: 'center', fontSize: 5, height: 0.5, backgroundColor: this.state.selectedDetail.color }} />
-              <CardContent >
-                <div style={{ width: 'auto', margin: 20, alignItems: "center", textAlign: "center"}}>
-                  {creatorProfile}
-                </div>
-                <div>
-                   
-                </div>
+              <CardHeader title='Creator Profile' style={{ textAlign: 'center', fontSize: 5, height: 0.5, backgroundColor: this.state.selectedDetail.color }} />
+              <CardContent >                
+                <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', }} >
+                  <ListItem>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <ImageIcon />
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Creator" />
+                    xyakskgj
+                  </ListItem>
+                  <Divider variant="inset" component="li" />
+                  <ListItem>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <WorkIcon />
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Rating" />
+                    {creatorProfile}
+                  </ListItem>
+                </List>
               </CardContent>
             </CardActionArea>
           </Card>
 
           <Card style={{width: 350, height: 'auto', margin: 5 }}>                   
             <CardActionArea>
-              <CardHeader title='Code Quality Rating' style={{ textAlign: 'center', fontSize: 5, height: 0.5, backgroundColor: this.state.selectedDetail.color }} />
-              <CardContent >
-                <div style={{ width: 'auto', margin: 20, alignItems: "center", textAlign: "center"}}>
-                  {codeQuality}
-                </div>
-                <div>
-                   
-                </div>
+              <CardHeader title='Code Quality' style={{ textAlign: 'center', fontSize: 5, height: 0.5, backgroundColor: this.state.selectedDetail.color }} />
+              <CardContent >                
+                <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', }} >
+                  <ListItem>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <WorkIcon />
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Security" />
+                    {codeQuality}               
+                  </ListItem>
+                  <Divider variant="inset" component="li" />
+                  <ListItem>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <WorkIcon />
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Rating" />
+                    {codeQuality}
+                  </ListItem>
+                </List>
               </CardContent>
             </CardActionArea>
           </Card>
 
           <Card style={{width: 350, height: 'auto', margin: 5 }}>                   
             <CardActionArea>
-              <CardHeader title='Social Media Traction Rating' style={{ textAlign: 'center', fontSize: 5, height: 0.5, backgroundColor: this.state.selectedDetail.color }} />
-              <CardContent >
-                <div style={{ width: 'auto', margin: 20, alignItems: "center", textAlign: "center"}}>
-                  {socialTraction}
-                </div>
-                <div>
-                   
-                </div>
+              <CardHeader title='Social Media Traction' style={{ textAlign: 'center', fontSize: 5, height: 0.5, backgroundColor: this.state.selectedDetail.color }} />
+              <CardContent >                
+                <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', }} >
+                  <ListItem>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <ImageIcon />
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Creator" />
+                  </ListItem>
+                  <Divider variant="inset" component="li" />
+                  <ListItem>
+                    <ListItemAvatar>
+                      <Avatar>
+                        <WorkIcon />
+                      </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Rating" />
+                    {socialTraction}
+                  </ListItem>
+                </List>
               </CardContent>
             </CardActionArea>
           </Card>

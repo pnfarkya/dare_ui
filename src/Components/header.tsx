@@ -67,8 +67,8 @@ const Header = () => {
   }
 
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl">
+    <AppBar position="static" style={{ backgroundColor: '#3A1A65', width: '100%'}}>
+      <Container maxWidth="xl" >
         <Toolbar disableGutters>
           <Typography variant="h6"
             noWrap component="a" href="/"
